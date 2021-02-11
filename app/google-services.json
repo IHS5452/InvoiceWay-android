@@ -1,0 +1,127 @@
+{
+  "project_info": {
+    "project_number": "71408833152",
+    "firebase_url": "https://amwaypos-mobile.firebaseio.com",
+    "project_id": "amwaypos-mobile",
+    "storage_bucket": "amwaypos-mobile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71408833152:android:571ba084db92081d818c65",
+        "android_client_info": {
+          "package_name": "org.starboat.AmwayPOS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71408833152-t4vv2eghqontvpvejd8orsp7vjr556b8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.starboat.AmwayPOS",
+            "certificate_hash": "52db5bd44363c1673df57dd06ffb9e62c8b70de5"
+          }
+        },
+        {
+          "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz0FvQPcYLUlBnadmrZ4nLttVJZ2PM5Ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.starboat.AmwayPOS"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71408833152:android:b4a45a917b63e12a818c65",
+        "android_client_info": {
+          "package_name": "org.starboat.amwayposandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz0FvQPcYLUlBnadmrZ4nLttVJZ2PM5Ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.starboat.AmwayPOS"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71408833152:android:03eb45b039f3f4e1818c65",
+        "android_client_info": {
+          "package_name": "org.starboat.invoiceway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz0FvQPcYLUlBnadmrZ4nLttVJZ2PM5Ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71408833152-issn0nb70rnecskji0otgrp6u7v8tsco.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.starboat.AmwayPOS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

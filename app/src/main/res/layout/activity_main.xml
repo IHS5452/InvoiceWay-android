@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="true"
+    tools:context=".MainActivity"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+    <Button
+        android:id="@+id/add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="268dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginRight="45dp"
+        android:onClick="onClick_addToCart"
+        android:text="Add to cart"
+        app:layout_constraintEnd_toStartOf="@+id/total"
+        app:layout_constraintStart_toStartOf="@+id/due"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:text="Enter a SKU"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/sku"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginBottom="32dp"
+        android:text="Total: $0.00"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/due"
+        app:layout_constraintEnd_toEndOf="@+id/due" />
+
+    <EditText
+        android:id="@+id/sku"
+        android:layout_width="0dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="26dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginRight="77dp"
+        android:layout_marginBottom="30dp"
+        android:ems="10"
+        android:hint="SKU"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/cats"
+        app:layout_constraintEnd_toStartOf="@+id/custName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="26dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginBottom="17dp"
+        android:text="Enter the cust. name"
+        app:layout_constraintBottom_toTopOf="@+id/custName"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Spinner
+        android:id="@+id/cats"
+        android:layout_width="0dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginBottom="70dp"
+        android:entries="@array/catagories"
+        app:layout_constraintBottom_toBottomOf="@+id/add_to_cart"
+        app:layout_constraintEnd_toEndOf="@+id/total"
+        app:layout_constraintStart_toStartOf="@+id/add_to_cart"
+        app:layout_constraintTop_toTopOf="@+id/custName" />
+
+    <EditText
+        android:id="@+id/custName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="Customer's name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sku"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/due"
+        android:layout_width="389dp"
+        android:layout_height="254dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_to_cart"
+        app:layout_constraintVertical_bias="0.014">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/relativeLayout"-->
+    <!--        android:layout_width="282dp"-->
+    <!--        android:layout_height="434dp"-->
+    <!--        android:gravity="bottom"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/add_to_cart">-->
+
+
+    <!--        <com.getbase.floatingactionbutton.FloatingActionsMenu-->
+    <!--            android:id="@+id/fam"-->
+    <!--            android:layout_width="73dp"-->
+    <!--            android:layout_height="454dp"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_alignParentBottom="true"-->
+    <!--            android:layout_gravity="top|right|bottom"-->
+    <!--            android:layout_marginEnd="0dp"-->
+    <!--            app:fab_addButtonColorNormal="@color/pink"-->
+    <!--            app:fab_addButtonColorPressed="@color/pink_pressed"-->
+    <!--            app:srcCompat="@drawable/ic_menu">-->
+
+    <!--            <com.getbase.floatingactionbutton.FloatingActionButton-->
+    <!--                android:id="@+id/clearCurrentOrder"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginRight="1dp"-->
+    <!--                app:fab_colorNormal="@color/colorPrimary"-->
+    <!--                app:fab_colorPressed="@color/white_pressed"-->
+    <!--                app:fab_icon="@drawable/ic_clear_current_order"-->
+    <!--                app:fab_size="mini"-->
+    <!--                app:fab_title="Clear current order" />-->
+
+    <!--            <com.getbase.floatingactionbutton.FloatingActionButton-->
+    <!--                android:id="@+id/viewPastOrders"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginRight="1dp"-->
+    <!--                app:fab_colorNormal="@color/colorPrimary"-->
+    <!--                app:fab_colorPressed="@color/white_pressed"-->
+    <!--                app:fab_icon="@drawable/ic_view_past_orders"-->
+    <!--                app:fab_size="mini"-->
+    <!--                app:fab_title="View Past orders" />-->
+
+    <!--            <com.getbase.floatingactionbutton.FloatingActionButton-->
+    <!--                android:id="@+id/CreateAccount"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginRight="1dp"-->
+    <!--                app:fab_colorNormal="@color/colorPrimary"-->
+    <!--                app:fab_colorPressed="@color/white_pressed"-->
+    <!--                app:fab_icon="@drawable/ic_create_account"-->
+    <!--                app:fab_size="mini"-->
+    <!--                app:fab_title="Create account" />-->
+
+    <!--            <com.getbase.floatingactionbutton.FloatingActionButton-->
+    <!--                android:id="@+id/login"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginRight="1dp"-->
+    <!--                app:fab_colorNormal="@color/colorPrimary"-->
+    <!--                app:fab_colorPressed="@color/white_pressed"-->
+    <!--                app:fab_icon="@drawable/ic_login"-->
+    <!--                app:fab_size="mini"-->
+    <!--                app:fab_title="Login" />-->
+
+    <!--            <com.getbase.floatingactionbutton.FloatingActionButton-->
+    <!--                android:id="@+id/logout"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginRight="1dp"-->
+    <!--                app:fab_colorNormal="@color/colorPrimary"-->
+    <!--                app:fab_colorPressed="@color/white_pressed"-->
+    <!--                app:fab_icon="@drawable/ic_logout"-->
+    <!--                app:fab_size="mini"-->
+    <!--                app:fab_title="Logout" />-->
+    <!--        </com.getbase.floatingactionbutton.FloatingActionsMenu>-->
+
+    <!--    </RelativeLayout>-->
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-9400593844053407/1145256288"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="678dp"></com.google.android.gms.ads.AdView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,23 +1,15 @@
 <resources>
-    <string name="app_name">InvoiceWay</string>
-    <string name="title_activity_drawer">drawerAct</string>
+    <string name="app_name">InvoicWay V3.0.0a</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">InvoiceWay</string>
+    <string name="nav_header_subtitle">Version 3.0.0a</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_home">New Order</string>
+    <string name="menu_gallery">Search Customer</string>
+    <string name="menu_slideshow">Search Order</string>
+    <string name="menu_IBO_Account">Edit IBO Account</string>
 
-
-
-    <string-array name="catagories">
-        <item>Personal Care</item>
-        <item>Nutrition</item>
-        <item>Home</item>
-        <item>Beauty</item>
-    </string-array>
 </resources>

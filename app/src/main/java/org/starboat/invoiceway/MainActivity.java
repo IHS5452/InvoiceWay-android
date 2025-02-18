@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 //Android UI
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -26,17 +27,19 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText name, SKU;
     private RadioButton he, be, pc, nu;
-    private TextView total;
+    public static TextView total;
     private RecyclerView cartTable;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference cartRef = database.getReference("users/");
@@ -44,19 +47,16 @@ public class MainActivity extends AppCompatActivity {
     private com.getbase.floatingactionbutton.FloatingActionButton vpo, cco, ca, li, lo;
     private FloatingActionsMenu fam;
     RecyclerView cartView;
-    ArrayList<row> itemCart = new ArrayList<>();
-    ArrayList<Double> priceCart = new ArrayList<>();
+
     ArrayList<String> itemCartToString = new ArrayList<>();
-    MyRecyclerViewAdapter adapter;
+    org.starboat.invoiceway.MyRecyclerViewAdapter adapter;
     String IBONUM = "";
     private String iboNumCheck = "";
-    private Spinner spinner;
     private String getSelected;
-    double totalBill = 0.00;
     private AdView mAdView;
 
     private RecyclerView RV;
-    private RecyclerView.Adapter RVA;
+    public static RecyclerView.Adapter RVA;
     private RecyclerView.LayoutManager RVLM;
 
     public void onClick_checkout(View view) {
@@ -65,9 +65,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void onClick_addToCart(View view) {
+
         if (savedValues.getString("IBONum", "").isEmpty()) {
             makeToast("Please login first");
-            Intent intent = new Intent(MainActivity.this, login.class);
+            Intent intent = new Intent(MainActivity.this, org.starboat.invoiceway.login.class);
             startActivity(intent);
         } else if (name.getText().equals(""))  {
             makeToast("Please enter your customer's name");
@@ -113,10 +114,13 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 //        vpo = (FloatingActionButton) findViewById(R.id.viewPastOrders);
 //        cco = (FloatingActionButton) findViewById(R.id.clearCurrentOrder);
 //        ca = (FloatingActionButton) findViewById(R.id.CreateAccount);
@@ -141,56 +145,20 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.custName);
         SKU = (EditText) findViewById(R.id.sku);
         savedValues = getSharedPreferences("savedValues", MODE_PRIVATE);
-        spinner = (Spinner) findViewById(R.id.cats);
         total = (TextView) findViewById(R.id.total);
-        spinner = findViewById(R.id.cats);
 
 
 
         //spinner.setOnItemSelectedListener(this);
-        getSelected = spinner.getSelectedItem().toString();
 
         RV = findViewById(R.id.due);
         RV.setHasFixedSize(true);
         RVLM = new LinearLayoutManager(this);
         //RVA = new MyRecyclerViewAdapter(itemCart);
-        RVA = new MyRecyclerViewAdapter(itemCart);
+        RVA = new org.starboat.invoiceway.MyRecyclerViewAdapter(master.itemCart);
         RV.setLayoutManager(RVLM);
         RV.setAdapter(RVA);
 
-
-//        adapter.setClickListener(this);
-//        recyclerView.setAdapter(adapter);
-
-//        vpo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                gotoPastOrdersView();            }
-//        });
-//        cco.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                clearOrder();
-//            }
-//        });
-//        ca.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//            gotocreateAccountView();
-//            }
-//        });
-//        li.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                gotoLoginView();
-//            }
-//        });
-//        lo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                    logout();
-//            }
-//        });
 
     }
 
@@ -241,7 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("amway_products/"+spinner.getSelectedItem().toString()+"/" + SKU.getText().toString());
+        DatabaseReference myRef = database.getReference("amway_products/"+ SKU.getText().toString());
 // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -254,10 +222,10 @@ public class MainActivity extends AppCompatActivity {
 
                     itemClass item = dataSnapshot.getValue(itemClass.class);
 
-                    itemCart.add(new row("$" + item.price + " - (" + item.itemName + ") - " + item.SKU));
-                    priceCart.add(Double.parseDouble(item.price));
-                    getSumOfArrayAndChangeTotal(priceCart);
-                    System.out.println(priceCart);
+                    master.itemCart.add(new row("$" + item.price + " - (" + item.itemName + ") - " + item.SKU));
+                    master.priceCart.add(Double.parseDouble(item.price));
+                    modifyCart.getSumOfArrayAndChangeTotal(master.priceCart, total);
+                    System.out.println(master.priceCart);
                     itemCartToString.add("$" + item.price + " - (" + item.itemName + ") - " + item.SKU);
                     makeToast("Added " + item.itemName + " to the bill.");
                     RVA.notifyItemInserted(0);
@@ -296,7 +264,7 @@ makeToast("Failed: " + error);
             i++;
         }
         intent.putExtra("cart", cartTogether);
-        intent.putExtra("due", totalBill);
+        intent.putExtra("due", master.totalBill);
 
 
         startActivity(intent);
@@ -304,8 +272,8 @@ makeToast("Failed: " + error);
 
 
     public void clearOrder() {
-        itemCart.removeAll(itemCart);
-        priceCart.removeAll(priceCart);
+        master.itemCart.removeAll(master.itemCart);
+        master.priceCart.removeAll(master.priceCart);
         RVA.notifyDataSetChanged();
         SKU.setText("");
         name.setText("");
@@ -314,16 +282,7 @@ makeToast("Failed: " + error);
 
     }
 
-    public double getSumOfArrayAndChangeTotal(ArrayList<Double> array) {
-        double sum = 0.00;
-        for(int i=0; i<array.size(); i++){
-            sum = sum + array.get(i);
-            total.setText("Total: $" + sum);
-        }
-        totalBill = sum;
-        return sum;
 
-    }
 
 
 

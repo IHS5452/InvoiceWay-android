@@ -53,21 +53,21 @@ private String value;
 rowText = getIntent().getStringExtra("rowContent");
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("users/"+iboNum+"/customers/" + name.getText().toString() + "/orders/" + rowText);
-        DatabaseReference secRef = database.getReference("users/"+iboNum+"/customers/" + name.getText().toString());
+        DatabaseReference myRef = database.getReference("users/"+iboNum+"/customers/" + name.getText().toString().toUpperCase() + "/orders/" + rowText);
+        DatabaseReference secRef = database.getReference("users/"+iboNum+"/customers/" + name.getText().toString().toUpperCase());
 
 // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
-//                    try {
+                for (DataSnapshot postSnapshot: dataSnapshot.getChildren()) {
+                    try {
 
 
 
-                        for (int z = 0; z <= dataSnapshot.getChildrenCount() - 1; z++) {
-                            //oldCart.add(new row(postSnapshot.child(String.valueOf(z)).getValue(String.class));
-                            cartText += dataSnapshot.getValue(String.class) + "\n";
+                        for (int z = 0; z <= postSnapshot.getChildrenCount() - 1; z++) {
+
+                            cartText += postSnapshot.getValue(String.class) + "\n";
                             z++;
                         }
 
@@ -76,13 +76,13 @@ rowText = getIntent().getStringExtra("rowContent");
 
                         RVA.notifyItemInserted(0);
                         RVA.notifyDataSetChanged();
-//                    }catch (NullPointerException e) {
-//                        makeToast("Error: " + e);
-//                    } catch (Exception e) {
-//                        makeToast("Error: " + e);
-//                    }
-//
-//                }
+                    }catch (NullPointerException e) {
+                        makeToast("Error: " + e);
+                    } catch (Exception e) {
+                        makeToast("Error: " + e);
+                    }
+
+                }
 //                for (String s : oldCartAsString)
 //                {
 //                    oldCart.add(new row(s));

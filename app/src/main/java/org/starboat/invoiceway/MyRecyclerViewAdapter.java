@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.TextView;
 import android.widget.Toast;
+import org.starboat.invoiceway.row;
+import org.starboat.invoiceway.modifyCart;
 
 
 import androidx.annotation.NonNull;
@@ -73,7 +75,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-    //remove item
+         modifyCart.removeFromCart(position);
+
             }
         });
 

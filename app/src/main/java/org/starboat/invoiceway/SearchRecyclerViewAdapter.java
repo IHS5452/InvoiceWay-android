@@ -17,7 +17,9 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
     private ArrayList<row> mRow = new ArrayList<row>();
     private onRowListener mOnRowList;
 
-
+    public interface onRowListener {
+        void onRowClicked(int position);
+    }
 
 
     public static class SearchRecyclerViewHolder extends ViewHolder implements View.OnClickListener {
@@ -61,14 +63,12 @@ public class SearchRecyclerViewAdapter extends RecyclerView.Adapter<SearchRecycl
 
     }
 
+
     @Override
     public int getItemCount() {
         return mRow.size();
     }
 
-    public interface onRowListener{
-        void onRowClicked(int position);
-    }
 
 }
 

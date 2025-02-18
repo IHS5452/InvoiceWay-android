@@ -40,10 +40,10 @@
               "client_type": 3
             },
             {
-              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_id": "71408833152-2kb6mc8jjuckm855les37qluen3ousje.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.starboat.AmwayPOS"
+                "bundle_id": "com.starboatLLC.IVPlayground"
               }
             }
           ]
@@ -76,10 +76,10 @@
               "client_type": 3
             },
             {
-              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_id": "71408833152-2kb6mc8jjuckm855les37qluen3ousje.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.starboat.AmwayPOS"
+                "bundle_id": "com.starboatLLC.IVPlayground"
               }
             }
           ]
@@ -112,10 +112,10 @@
               "client_type": 3
             },
             {
-              "client_id": "71408833152-lopcpk4o41cvimt1493t6rc9ifje21og.apps.googleusercontent.com",
+              "client_id": "71408833152-2kb6mc8jjuckm855les37qluen3ousje.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "org.starboat.AmwayPOS"
+                "bundle_id": "com.starboatLLC.IVPlayground"
               }
             }
           ]

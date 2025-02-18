@@ -37,7 +37,7 @@ public class Search extends AppCompatActivity implements SearchRecyclerViewAdapt
     public void addToCart() {
         peopleCart.removeAll(peopleCart);
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference myRef = database.child("users/"+savedValues.getString("IBONum", "") + "/customers/"+ name.getText().toString()+"/orders");
+        DatabaseReference myRef = database.child("users/"+savedValues.getString("IBONum", "") + "/customers/"+ name.getText().toString().toUpperCase()+"/orders");
 // Read from the database
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -111,17 +111,18 @@ public class Search extends AppCompatActivity implements SearchRecyclerViewAdapt
     }
 
 
+
+
     @Override
     public void onRowClicked(int position) {
         Intent intent = new Intent(Search.this, custInfo.class);
         row itemOnList = peopleCart.get(position);
 
-        intent.putExtra("searchCust", name.getText().toString());
+        intent.putExtra("searchCust", name.getText().toString().toUpperCase());
         intent.putExtra("rowContent", itemOnList.getmText());
 
         startActivity(intent);
-
-     }
+    }
 }
 
 
